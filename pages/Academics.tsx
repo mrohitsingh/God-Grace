@@ -127,7 +127,8 @@ const Academics: React.FC = () => {
               <div key={i} className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm flex flex-col md:flex-row h-full">
                 <div className={`${act.color} p-8 md:w-1/3 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-gray-100`}>
                   <div className="bg-white p-4 rounded-2xl shadow-sm mb-4">
-                    {React.cloneElement(act.icon as React.ReactElement, { size: 32 })}
+                    {/* Fixed: Use any to avoid type check error in React.cloneElement */}
+                    {React.cloneElement(act.icon as React.ReactElement<any>, { size: 32 })}
                   </div>
                   <h4 className="font-bold text-gray-900">{act.category}</h4>
                 </div>

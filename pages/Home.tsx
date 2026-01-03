@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  BookOpen, Users, ShieldCheck, MapPin, ArrowRight, Star, GraduationCap, 
-  Heart, Clock, Image as ImageIcon, Bell, Quote, Trophy, ExternalLink,
-  Calendar, Microscope, Library, Laptop, Music, Footprints, CheckCircle2,
-  ChevronLeft, ChevronRight
+  BookOpen, Users, MapPin, ArrowRight, Star, GraduationCap, 
+  Heart, Clock, Bell, Quote, ExternalLink,
+  Microscope, Library, Laptop, Music,
+  ChevronLeft, ChevronRight, Award, Sparkles, Phone
 } from 'lucide-react';
 import { SCHOOL_INFO } from '../constants';
 
@@ -14,17 +14,17 @@ const Home: React.FC = () => {
 
   const galleryItems = [
     {
-      url: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80",
+      url: "https://images.unsplash.com/photo-1523050853051-f75dbba890cf?auto=format&fit=crop&q=80",
       title: "Main Campus Entrance",
       category: "Campus"
     },
     {
-      url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80",
+      url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80",
       title: "Interactive Smart Classroom",
       category: "Classrooms"
     },
     {
-      url: "https://images.unsplash.com/photo-1577891729319-f4871c6ecdf1?auto=format&fit=crop&q=80",
+      url: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80",
       title: "Students Group Activity",
       category: "Students"
     }
@@ -81,56 +81,157 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80" 
-            alt="School Campus" 
-            className="w-full h-full object-cover brightness-[0.35]"
-          />
+      {/* High-Impact Split Hero Section */}
+      <section className="relative min-h-[85vh] flex items-center bg-white pt-24 lg:pt-0 overflow-hidden">
+        {/* Background Decorative Pattern */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 hidden lg:block -z-10">
+          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#1e40af 2px, transparent 2px)', backgroundSize: '30px 30px' }}></div>
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <div className="max-w-3xl">
-            <h2 className="text-blue-400 font-bold tracking-widest uppercase mb-4 animate-fade-in flex items-center gap-2">
-              <span className="h-px w-8 bg-blue-400"></span>
-              {SCHOOL_INFO.nameHi}
-            </h2>
-            <h1 className="text-4xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-              {SCHOOL_INFO.nameEn}
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-4 font-medium">
-              English & Hindi Medium Education
-            </p>
-            <p className="text-lg md:text-xl text-blue-100 mb-10 italic">
-              "Nurturing young minds with knowledge, discipline, and values."
-            </p>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link 
-                to="/contact" 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-blue-900/20"
-              >
-                Contact Us
-              </Link>
-              <a 
-                href={SCHOOL_INFO.googleMapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-center transition-all flex items-center justify-center gap-2"
-              >
-                Get Directions <MapPin size={18} />
-              </a>
+            {/* Left: Content Area */}
+            <div className="lg:w-1/2 text-center lg:text-left space-y-8 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 bg-blue-100/80 backdrop-blur-sm text-blue-700 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em]">
+                <Sparkles size={14} className="animate-pulse" />
+                Admission Open for Session 2025-26
+              </div>
+
+              <div>
+                <h2 className="text-blue-600/70 font-bold text-xl mb-2 tracking-tight">
+                  {SCHOOL_INFO.nameHi}
+                </h2>
+                <h1 className="text-5xl md:text-7xl font-black text-gray-900 leading-[1.05] tracking-tighter">
+                  Nurturing Minds <br />
+                  <span className="text-blue-600">Building Futures.</span>
+                </h1>
+              </div>
+
+              <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                A premier English and Hindi medium institution in <span className="text-gray-900 font-bold">Rautari, Bijaipur</span>, where academic excellence meets traditional values.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
+                <Link 
+                  to="/admissions" 
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-xl shadow-blue-600/30 hover:-translate-y-1"
+                >
+                  Apply Now <ArrowRight size={20} />
+                </Link>
+                <Link 
+                  to="/academics" 
+                  className="w-full sm:w-auto bg-white text-gray-900 border border-gray-200 px-10 py-5 rounded-2xl font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-gray-50 transition-all shadow-sm"
+                >
+                  Curriculum
+                </Link>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 pt-8 border-t border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4].map(i => (
+                      <div key={i} className={`w-10 h-10 rounded-full border-4 border-white bg-blue-${i * 100 + 200}`}></div>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-gray-900 leading-none">500+ Students</p>
+                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Enrolled Yearly</p>
+                  </div>
+                </div>
+                <div className="h-8 w-px bg-gray-200 hidden sm:block"></div>
+                <div className="flex items-center gap-3">
+                  <div className="flex text-yellow-400">
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill="currentColor" />)}
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-gray-900 leading-none">4.8 Rating</p>
+                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Google Reviews</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm font-medium text-gray-300 bg-black/20 backdrop-blur-sm p-4 rounded-2xl border border-white/5 inline-flex">
-              <div className="flex items-center gap-2">
-                <MapPin className="text-blue-400" size={18} />
-                <span>{SCHOOL_INFO.address}</span>
+            {/* Right: Visual Area */}
+            <div className="lg:w-1/2 relative">
+              <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(30,64,175,0.2)] border-[16px] border-white group">
+                <img 
+                  src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80" 
+                  alt="Students learning at God's Grace School" 
+                  className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent"></div>
+                
+                {/* Floating Info Badge on Image */}
+                <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl animate-float">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-blue-600 p-3 rounded-2xl text-white">
+                      <GraduationCap size={24} />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-gray-900 text-sm leading-none mb-1">Empowering Youth</h4>
+                      <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Since foundation</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="text-blue-400" size={18} />
-                <span>{SCHOOL_INFO.hours}</span>
+
+              {/* Circular Achievement Badge */}
+              <div className="absolute -top-12 -right-6 lg:-right-12 w-32 h-32 lg:w-48 lg:h-48 z-20 animate-spin-slower">
+                <svg className="w-full h-full text-blue-600 opacity-20" viewBox="0 0 100 100">
+                  <path id="textPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                  <text className="text-[10px] font-black uppercase tracking-[0.2em] fill-current">
+                    <textPath xlinkHref="#textPath">
+                      • Academic Excellence • Character Building • Quality Education •
+                    </textPath>
+                  </text>
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-blue-600 text-white w-16 h-16 lg:w-24 lg:h-24 rounded-full flex flex-col items-center justify-center shadow-2xl">
+                    <Award size={32} />
+                    <span className="text-[8px] font-bold uppercase mt-1">Best Choice</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative Blobs */}
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60 -z-10"></div>
+              <div className="absolute top-1/2 right-0 w-60 h-60 bg-purple-100 rounded-full blur-3xl opacity-40 -z-10"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Access Bar */}
+      <section className="bg-white border-b border-gray-100 py-8 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <Phone size={24} />
+              </div>
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Contact Us</p>
+                <p className="text-sm font-bold text-gray-900">{SCHOOL_INFO.phone}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-5 border-y md:border-y-0 md:border-x border-gray-100 py-6 md:py-0 md:px-8">
+              <div className="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+                <Clock size={24} />
+              </div>
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Campus Hours</p>
+                <p className="text-sm font-bold text-gray-900">{SCHOOL_INFO.hours}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-5 md:pl-8">
+              <div className="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+                <Award size={24} />
+              </div>
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Recognition</p>
+                <p className="text-sm font-bold text-gray-900">Registered Educational Inst.</p>
               </div>
             </div>
           </div>
@@ -138,23 +239,23 @@ const Home: React.FC = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-12 bg-blue-600 relative overflow-hidden">
+      <section className="py-24 bg-blue-600 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
             <div>
-              <div className="text-4xl font-black mb-2">15:1</div>
+              <div className="text-4xl md:text-6xl font-black mb-2 italic">15:1</div>
               <p className="text-blue-100 text-sm font-bold uppercase tracking-widest">Student Ratio</p>
             </div>
             <div>
-              <div className="text-4xl font-black mb-2">10+</div>
+              <div className="text-4xl md:text-6xl font-black mb-2 italic">10+</div>
               <p className="text-blue-100 text-sm font-bold uppercase tracking-widest">Expert Teachers</p>
             </div>
             <div>
-              <div className="text-4xl font-black mb-2">100%</div>
+              <div className="text-4xl md:text-6xl font-black mb-2 italic">100%</div>
               <p className="text-blue-100 text-sm font-bold uppercase tracking-widest">Pass Rate</p>
             </div>
             <div>
-              <div className="text-4xl font-black mb-2">15+</div>
+              <div className="text-4xl md:text-6xl font-black mb-2 italic">15+</div>
               <p className="text-blue-100 text-sm font-bold uppercase tracking-widest">Activities</p>
             </div>
           </div>
@@ -162,18 +263,28 @@ const Home: React.FC = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
       </section>
 
-      {/* Announcements Bar */}
-      <section className="bg-orange-50 py-6 border-b border-orange-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-6 overflow-hidden">
-          <div className="flex items-center gap-2 text-orange-600 font-bold shrink-0">
+      {/* Announcements Bar - FIXED OVERLAP */}
+      <section className="bg-orange-50 py-6 border-b border-orange-100 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center overflow-hidden">
+          {/* Label Curtain Mask */}
+          <div className="flex items-center gap-3 text-orange-600 font-bold shrink-0 z-20 bg-orange-50 pr-8 relative after:absolute after:right-0 after:top-0 after:h-full after:w-8 after:bg-gradient-to-r after:from-orange-50 after:to-transparent">
             <Bell size={20} className="animate-bounce" />
-            <span className="uppercase text-xs tracking-widest">Updates:</span>
+            <span className="uppercase text-[10px] tracking-[0.2em] whitespace-nowrap">School Updates:</span>
           </div>
-          <div className="flex gap-12 animate-marquee whitespace-nowrap text-gray-700 font-medium text-sm">
-            <span>• Admissions Open for 2025-26 Session •</span>
-            <span>• Annual Sports Day scheduled for Dec 15th •</span>
-            <span>• Mid-Term results are now available at the office •</span>
-            <span>• Winter Uniform Policy starts from November 1st •</span>
+          
+          {/* Scrolling Marquee Container */}
+          <div className="flex-1 overflow-hidden z-10">
+            <div className="flex gap-20 animate-marquee whitespace-nowrap text-gray-700 font-bold text-sm">
+              <span>• Admissions Open for 2025-26 Session •</span>
+              <span>• Annual Sports Day scheduled for Dec 15th •</span>
+              <span>• Mid-Term results are now available at the office •</span>
+              <span>• Winter Uniform Policy starts from November 1st •</span>
+              {/* Duplicate for seamless scrolling */}
+              <span>• Admissions Open for 2025-26 Session •</span>
+              <span>• Annual Sports Day scheduled for Dec 15th •</span>
+              <span>• Mid-Term results are now available at the office •</span>
+              <span>• Winter Uniform Policy starts from November 1st •</span>
+            </div>
           </div>
         </div>
       </section>
@@ -265,7 +376,7 @@ const Home: React.FC = () => {
             {facilities.map((fac, idx) => (
               <div key={idx} className="text-center p-8 rounded-[2rem] bg-gray-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-blue-100 transition-all duration-500 group">
                 <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  {React.cloneElement(fac.icon as React.ReactElement, { size: 30 })}
+                  {React.cloneElement(fac.icon as React.ReactElement<any>, { size: 30 })}
                 </div>
                 <h4 className="font-bold text-gray-900 text-lg mb-2">{fac.title}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">{fac.desc}</p>
@@ -474,6 +585,38 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Styles for Animations */}
+      <style>{`
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes spin-slower {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+        .animate-spin-slower {
+          animation: spin-slower 20s linear infinite;
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   );
 };
